@@ -1,30 +1,28 @@
 import { Button } from 'antd';
-import loadingImg from '/images/loading.png';
 import inquiryImg from '/images/inquiry.png';
 import { Flex } from 'antd';
 import { Input } from 'antd';
 import { useState } from 'react';
-import { Spin } from 'antd';
+import Loading from '../components/Loading';
 
 const TextScreen = () => {
   const [loading, setLoading] = useState(false);
 
   return loading ? (
-    <Spin spin indicator={<img src={loadingImg} />} />
+    <Loading />
   ) : (
-    <Flex vertical>
-      <Input className="inquiry-input" />
+    <Flex vertical justify="center" align="center">
+      <Input className="inquiry-input" size="large" style={{ width: 300 }} />
       <Button
         type="text"
         onClick={() => {
           setLoading(true);
           setTimeout(() => {
             setLoading(false);
-          }, 1000);
+          }, 2000);
         }}
-      >
-        <img src={inquiryImg} />
-      </Button>{' '}
+        icon={<img src={inquiryImg} width={220} />}
+      />
     </Flex>
   );
 };

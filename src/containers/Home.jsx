@@ -9,9 +9,13 @@ import cameraActiveImg from '/images/camera-active.png';
 import searchActiveImg from '/images/search-active.png';
 import bgImg from '/images/bg.png';
 import { useState } from 'react';
+import TextScreen from './TextScreen';
+import CameraScreen from './CameraScreen';
+import SearchScreen from './SearchScreen';
 
 const Home = () => {
-  const [selectFunc, setSelectFunc] = useState(0);
+  const [selectFunc, setSelectFunc] = useState(-1);
+  console.log(`⚡ ~~ Home ~~ selectFunc`, selectFunc);
 
   const functions = [
     {
@@ -29,7 +33,11 @@ const Home = () => {
   ];
 
   const handleClick = (idx) => {
-    setSelectFunc(idx);
+    if (idx === selectFunc) {
+      setSelectFunc(-1);
+    } else {
+      setSelectFunc(idx);
+    }
   };
 
   return (
@@ -56,10 +64,17 @@ const Home = () => {
       </header>
 
       <section className="body">
-        <img src={bgImg} className="avatar" width={'90%'} height={'auto'} />
-        <p className="color_ffff68 font-20">
-          Nào, hãy cùng chăm sóc mẹ thiên nhiên của chúng ta
-        </p>
+        {selectFunc === -1 && (
+          <>
+            <img src={bgImg} className="avatar" width={'90%'} height={'auto'} />
+            <p className="color_ffff68 font-20">
+              Nào, hãy cùng chăm sóc mẹ thiên nhiên của chúng ta
+            </p>
+          </>
+        )}
+        {selectFunc === 0 && <TextScreen />}
+        {selectFunc === 1 && <CameraScreen />}
+        {selectFunc === 2 && <SearchScreen />}
       </section>
 
       <footer>
