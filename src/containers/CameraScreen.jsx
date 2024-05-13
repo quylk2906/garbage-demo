@@ -29,6 +29,7 @@ const CameraScreen = () => {
   const webcamRef = useRef(null);
 
   const showRecord = (result) => {
+    console.log(result);
     const foundCategory = categories.find((el) =>
       el.classifications.some((el2) => result.includes(el2))
     );
@@ -41,14 +42,15 @@ const CameraScreen = () => {
     try {
       const chatCompletion = await openai.chat.completions.create({
         model: 'gpt-4-vision-preview',
-        max_tokens: 100,
+        max_tokens: 80,
         messages: [
           {
             role: 'user',
             content: [
               {
                 type: 'text',
-                text: 'Extract text from this image',
+                text: 'Describe this image',
+                // text: 'Extract text from this image',
               },
               {
                 type: 'image_url',
