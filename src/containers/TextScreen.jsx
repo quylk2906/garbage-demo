@@ -18,9 +18,13 @@ const TextScreen = () => {
     setTimeout(() => {
       setLoading(false);
       if (
-        ['ly', '1 lan'].some((el) => removeUnicode(value.current).includes(el))
+        ['ly', '1 lan'].some((el) =>
+          removeUnicode(value.current).toLowerCase().includes(el)
+        )
       ) {
         setCategory(1);
+      } else if (removeUnicode(value.current).toLowerCase().includes('pin')) {
+        setCategory(2);
       } else {
         setCategory(3);
       }

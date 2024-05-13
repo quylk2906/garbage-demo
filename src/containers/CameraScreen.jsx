@@ -10,7 +10,7 @@ import { categories } from '../constants';
 import Results from '../components/Results';
 import { message } from 'antd';
 
-const apiKey = 'sk-proj-06V0uuvcSQoyu9V95sRBT3BlbkFJDtJDVQE1BMizs22O9C9e';
+const apiKey = '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';
 
 const openai = new OpenAI({
   apiKey,
@@ -18,8 +18,8 @@ const openai = new OpenAI({
 });
 
 const videoConstraints = {
-  width: 1280,
-  height: 720,
+  // width: '100%',
+  height: '100%',
   facingMode: 'user',
 };
 
@@ -53,7 +53,7 @@ const CameraScreen = () => {
               {
                 type: 'image_url',
                 image_url: {
-                  url: `data:image/jpeg;base64,${image}`,
+                  url: image,
                 },
               },
             ],
@@ -77,28 +77,24 @@ const CameraScreen = () => {
     return <Results category={category} />;
   }
 
-  return (
-    <div>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div style={{ position: 'relative' }}>
-          <Webcam
-            audio={false}
-            height={'100%'}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-            width={'auto'}
-            videoConstraints={videoConstraints}
-          />
-          <Button
-            type="text"
-            onClick={capture}
-            icon={<img src={ScannerImg} width={300} />}
-            className="capture-btn"
-          />
-        </div>
-      )}
+  return loading ? (
+    <Loading />
+  ) : (
+    <div style={{ position: 'relative' }}>
+      <Webcam
+        audio={false}
+        height={'100%'}
+        ref={webcamRef}
+        screenshotFormat="image/jpeg"
+        width={'auto'}
+        videoConstraints={videoConstraints}
+      />
+      <Button
+        type="text"
+        onClick={capture}
+        icon={<img src={ScannerImg} width={300} />}
+        className="capture-btn"
+      />
     </div>
   );
 };
