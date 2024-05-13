@@ -45,6 +45,7 @@ const TextScreen = () => {
         onPressEnter={search}
       />
       <Button
+        style={{ marginTop: '1rem' }}
         type="text"
         onClick={search}
         icon={<img src={inquiryImg} width={220} />}

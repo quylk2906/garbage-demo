@@ -63,6 +63,10 @@
   color: #0005ae;
 }
 
+.color_466291 {
+  color: #466291;
+}
+
 .inquiry-input {
   border: 8px solid #466291;
   border-radius: 16px;
@@ -89,22 +93,22 @@ footer {
   height: 104px;
   justify-content: space-around;
   align-items: center;
-}
 
-button {
-  width: 80px !important;
-  height: 80px !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  border-radius: 40px !important;
+  button {
+    width: 80px !important;
+    height: 80px !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border-radius: 40px !important;
 
-  &:hover:not(.activated) {
-    background-color: rgba($color: #93cfba, $alpha: 0.2) !important;
-  }
+    &:hover:not(.activated) {
+      background-color: rgba($color: #93cfba, $alpha: 0.2) !important;
+    }
 
-  &.activated {
-    background-color: #93cfba !important;
+    &.activated {
+      background-color: #93cfba !important;
+    }
   }
 }
 
