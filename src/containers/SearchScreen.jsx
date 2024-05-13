@@ -18,7 +18,16 @@ const SearchScreen = () => {
   };
 
   if (showMap) {
-    return <img src={mapImg} width={'111%'} />;
+    return (
+      <div
+        style={{
+          marginTop: -112,
+          marginBottom: -110,
+        }}
+      >
+        <img src={mapImg} style={{ width: 414 }} />
+      </div>
+    );
   }
 
   return loading ? (
@@ -29,7 +38,7 @@ const SearchScreen = () => {
         style={{
           lineHeight: 1.3,
           marginTop: -100,
-          transform: 'translateY(-100px)',
+          transform: 'translateY(-50px)',
         }}
       >
         <strong className="font-26 color_0005ae">
@@ -39,7 +48,7 @@ const SearchScreen = () => {
       </div>
       <div>
         <div>
-          <p className="color_466291">
+          <p className="color_466291" style={{ marginBottom: 4 }}>
             <strong>Nhập vị trí hiện tai của bạn:</strong>
           </p>
           <Input
