@@ -5,7 +5,7 @@ const Loading = () => {
   return (
     <Flex vertical gap={16}>
       <img src={loadingImg} width={300} height={300} className="loading" />
-      <strong className="font-26" style={{ color: '#0005ae' }}>
+      <strong className="font-26 color_0005ae">
         Đang xử lý dữ liệu <br /> vui lòng chờ
       </strong>
     </Flex>
