@@ -8,21 +8,13 @@ import textActiveImg from '/images/text-active.png';
 import cameraActiveImg from '/images/camera-active.png';
 import searchActiveImg from '/images/search-active.png';
 import bgImg from '/images/bg.png';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import TextScreen from './TextScreen';
 import CameraScreen from './CameraScreen';
 import SearchScreen from './SearchScreen';
 
 const Home = () => {
   const [selectFunc, setSelectFunc] = useState(-1);
-
-  useEffect(() => {
-    console.log(import.meta.env.CHAT_GPT_KEY ?? 'No worked 11211');
-    console.log(import.meta.env.VITE_CHAT_GPT_KEY ?? 'VITE_CHAT_GPT_KEY');
-    console.log(
-      import.meta.env.VITE_CHAT_GPT_KEY_XXXX ?? 'VITE_CHAT_GPT_KEY_XXXX'
-    );
-  }, []);
 
   const functions = [
     {

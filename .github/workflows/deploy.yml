@@ -39,8 +39,7 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
-          VITE_CHAT_GPT_KEY: ${{ secrets.VITE_CHAT_GPT_KEY }}
-          VITE_CHAT_GPT_KEY_XXXX: ${{ secrets.CHAT_GPT_KEY }}
+          VITE_CHAT_GPT_KEY: ${{ secrets.CHAT_GPT_KEY }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

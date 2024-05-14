@@ -11,7 +11,7 @@ import Results from '../components/Results';
 import { message } from 'antd';
 
 const openai = new OpenAI({
-  apiKey: '',
+  apiKey: import.meta.env.VITE_CHAT_GPT_KEY,
   dangerouslyAllowBrowser: true,
 });
 
@@ -31,7 +31,6 @@ const CameraScreen = () => {
     const foundCategory = categories.find((el) =>
       el.classifications.some((el2) => result.includes(el2))
     );
-
     setCategory(foundCategory?.key);
   };
 
