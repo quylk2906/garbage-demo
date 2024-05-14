@@ -15,9 +15,15 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
+// const videoConstraints = {
+//   // width: '100%',
+//   height: '100%',
+//   facingMode: 'user',
+// };
+
 const videoConstraints = {
-  // width: '100%',
-  height: '100%',
+  width: 1280,
+  height: 720,
   facingMode: 'user',
 };
 
@@ -81,11 +87,16 @@ const CameraScreen = () => {
   ) : (
     <div style={{ position: 'relative' }}>
       <Webcam
+        // audio={false}
+        // height={'100%'}
+        // ref={webcamRef}
+        // screenshotFormat="image/jpeg"
+        // width={'auto'}
+        // videoConstraints={videoConstraints}
         audio={false}
-        height={'100%'}
-        ref={webcamRef}
+        height={720}
         screenshotFormat="image/jpeg"
-        width={'auto'}
+        width={1280}
         videoConstraints={videoConstraints}
       />
       <Button
