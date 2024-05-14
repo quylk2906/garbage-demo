@@ -17,6 +17,7 @@ jobs:
       id-token: write
       # id-token: write
       actions: read
+      pages: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -38,7 +39,8 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
-          VITE_API_KEY_1: ${{ secrets.CHAT_GPT_KEY }}
+          VITE_CHAT_GPT_KEY: ${{ secrets.VITE_CHAT_GPT_KEY }}
+          VITE_CHAT_GPT_KEY_XXXX: ${{ secrets.CHAT_GPT_KEY }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
@@ -49,5 +51,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

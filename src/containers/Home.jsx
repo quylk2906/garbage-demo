@@ -17,9 +17,11 @@ const Home = () => {
   const [selectFunc, setSelectFunc] = useState(-1);
 
   useEffect(() => {
-    console.log(import.meta.env.CHAT_GPT_KEY ?? 'No worked');
-    console.log(import.meta.env.VITE_API_KEY_1 ?? 'VITE_API_KEY_1');
-    console.log(import.meta.env.VITE_API_KEY_2 ?? 'VITE_API_KEY_2');
+    console.log(import.meta.env.CHAT_GPT_KEY ?? 'No worked 11211');
+    console.log(import.meta.env.VITE_CHAT_GPT_KEY ?? 'VITE_CHAT_GPT_KEY');
+    console.log(
+      import.meta.env.VITE_CHAT_GPT_KEY_XXXX ?? 'VITE_CHAT_GPT_KEY_XXXX'
+    );
   }, []);
 
   const functions = [
