@@ -4,39 +4,30 @@ on:
   push:
     branches:
       - main
+      - gh-pages
+
+# permissions:
+# id-token: write # This is required for requesting the JWT
+# contents: read # This is required for actions/checkout
 
 jobs:
-  # build:
-  #   name: Build
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Checkout repo
-  #       uses: actions/checkout@v4
-
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v4
-
-  #     - name: Install dependencies
-  #       uses: bahmutov/npm-install@v1
-
-  #     - name: Build project
-  #       run: npm run build
-
-  #     - name: Upload production-ready build files
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: production-files
-  #         path: ./dist
-
   deploy:
+    permissions:
+      contents: read
+      id-token: write
+      # id-token: write
+      actions: read
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8.5.1
       - name: Checkout
         uses: actions/checkout@v3
+        # uses: actions/checkout@v3
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
@@ -45,16 +36,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build
-        run: pnpm build
+        run: pnpm run build
         env:
           VITE_API_KEY_1: ${{ secrets.CHAT_GPT_KEY }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           # Upload dist repository
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -17,7 +17,7 @@ const Home = () => {
   const [selectFunc, setSelectFunc] = useState(-1);
 
   useEffect(() => {
-    console.log(import.meta.env.CHAT_GPT_KEY ?? 'NO worked');
+    console.log(import.meta.env.CHAT_GPT_KEY ?? 'No worked');
     console.log(import.meta.env.VITE_API_KEY_1 ?? 'VITE_API_KEY_1');
     console.log(import.meta.env.VITE_API_KEY_2 ?? 'VITE_API_KEY_2');
   }, []);
