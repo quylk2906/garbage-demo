@@ -10,10 +10,8 @@ import { categories } from '../constants';
 import Results from '../components/Results';
 import { message } from 'antd';
 
-const apiKey = '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';
-
 const openai = new OpenAI({
-  apiKey,
+  apiKey: '',
   dangerouslyAllowBrowser: true,
 });
 
