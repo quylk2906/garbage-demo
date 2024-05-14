@@ -18,6 +18,8 @@ const Home = () => {
 
   useEffect(() => {
     console.log(import.meta.env.CHAT_GPT_KEY ?? 'NO worked');
+    console.log(import.meta.env.VITE_API_KEY_1 ?? 'VITE_API_KEY_1');
+    console.log(import.meta.env.VITE_API_KEY_2 ?? 'VITE_API_KEY_2');
   }, []);
 
   const functions = [

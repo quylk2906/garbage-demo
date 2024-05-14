@@ -6,6 +6,7 @@ import './App.scss';
 import Home from './containers/Home';
 
 function App() {
+ 
   return (
     <main className="main">
       <Home />
